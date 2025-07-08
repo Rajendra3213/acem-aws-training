@@ -1,35 +1,25 @@
 #!/bin/bash
+apt update -y
+apt install -y apache2
+systemctl start apache2
+systemctl enable apache2
 
-# Update and install required packages
-apt-get update -y
-apt-get install -y curl python3
+TOKEN=$(curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
+AZ=$(curl -H "X-aws-ec2-metadata-token: $TOKEN" -s http://169.254.169.254/latest/meta-data/placement/availability-zone)
+INSTANCE_ID=$(curl -H "X-aws-ec2-metadata-token: $TOKEN" -s http://169.254.169.254/latest/meta-data/instance-id)
 
-# Create web root directory
-mkdir -p /var/www/html
-
-# Get IMDSv2 token
-TOKEN=$(curl -X PUT "http://169.254.169.254/latest/api/token" \
-  -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
-
-# Fetch metadata using the token
-INSTANCE_ID=$(curl -H "X-aws-ec2-metadata-token: $TOKEN" \
-  -s http://169.254.169.254/latest/meta-data/instance-id)
-
-AVAIL_ZONE=$(curl -H "X-aws-ec2-metadata-token: $TOKEN" \
-  -s http://169.254.169.254/latest/meta-data/placement/availability-zone)
-
-# Create HTML file with metadata
-cat <<EOF > /var/www/html/index.html
+cat > /var/www/html/index.html << EOF
+<!DOCTYPE html>
 <html>
-  <head><title>EC2 Metadata</title></head>
-  <body>
-    <h1>EC2 Instance Metadata (IMDSv2)</h1>
-    <p><strong>Instance ID:</strong> $INSTANCE_ID</p>
-    <p><strong>Availability Zone:</strong> $AVAIL_ZONE</p>
-  </body>
+<head>
+   <title>EC2 Instance Info</title>
+</head>
+<body>
+   <h1>EC2 Instance Information</h1>
+   <p><strong>Availability Zone:</strong> $AZ</p>
+   <p><strong>Instance ID:</strong> $INSTANCE_ID</p>
+</body>
 </html>
 EOF
 
-# Start a simple HTTP server on port 80
-cd /var/www/html
-nohup python3 -m http.server 80 &
+systemctl restart apache2
