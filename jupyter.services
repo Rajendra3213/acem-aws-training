@@ -1,0 +1,14 @@
+[Unit]
+Description=Jupyter Notebook
+
+[Service]
+Type=simple
+Environment=ENV=runtime
+Environment=PATH=/home/ubuntu/jupyternotebook/env/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ExecStart=/home/ubuntu/jupyternotebook/env/bin/jupyter-notebook --ip=0.0.0.0 --port=80 --no-browser --allow-root --notebook-dir=/home/ubuntu/jupyternotebook
+WorkingDirectory=/home/ubuntu/jupyternotebook
+User=root
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
