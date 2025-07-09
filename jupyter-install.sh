@@ -13,6 +13,6 @@ pip install --upgrade pip
 pip install -r requirements.txt
 
 # to start jupyter notebook
-cp jupyter.services /etc/systemd/system/jupyter.service
+cp jupyter.service /etc/systemd/system/jupyter.service
 systemctl enable jupyter.service
 systemctl start jupyter.service
