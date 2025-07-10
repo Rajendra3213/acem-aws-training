@@ -7,8 +7,8 @@ apt install -y python3-venv
 mkdir -p /home/ubuntu/jupyternotebook/
 cd /home/ubuntu/jupyternotebook/
 
-python3 -m venv jupyter_env
-source jupyter_env/bin/activate
+python3 -m venv env
+source env/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 
