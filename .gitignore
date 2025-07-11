@@ -81,6 +81,8 @@ coverage.xml
 
 # environments
 .env
+env
+env/*
 .env.*
 
 # AWS credentials or keys (if accidentally named like this)
