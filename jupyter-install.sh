@@ -10,9 +10,11 @@ cd /home/ubuntu/jupyternotebook/
 python3 -m venv env
 source env/bin/activate
 pip install --upgrade pip
-pip install -r requirements.txt
+# pip install -r requirements.txt
+pip install jupyter
 
 # to start jupyter notebook
 cp jupyter.service /etc/systemd/system/jupyter.service
 systemctl enable jupyter.service
 systemctl start jupyter.service
+
