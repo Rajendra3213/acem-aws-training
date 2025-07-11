@@ -5,6 +5,7 @@ apt-get upgrade -y
 #create python3 virtual environment
 apt install -y python3-venv
 mkdir -p /home/ubuntu/jupyternotebook/
+cp jupyter.service /home/ubuntu/jupyternotebook/
 cd /home/ubuntu/jupyternotebook/
 
 python3 -m venv env
