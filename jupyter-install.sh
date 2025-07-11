@@ -21,7 +21,7 @@ pip install plotly-express
 pip install isodate
 pip install scikit-learn
 pip install pytest-warnings
-
+pip install joblib
 
 # to start jupyter notebook
 cp jupyter.service /etc/systemd/system/jupyter.service
