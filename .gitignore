@@ -1,0 +1,103 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PyInstaller
+# Usually contains build artifacts
+dist/
+build/
+*.spec
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+media/
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# Pytest
+.pytest_cache/
+.cache
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# pyre
+.pyre/
+
+# pytype
+.pytype/
+
+# coverage
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# testing
+.tox/
+.nox/
+
+# editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# environments
+.env
+.env.*
+
+# AWS credentials or keys (if accidentally named like this)
+*.pem
+*.key
+*.crt
+
+# wheel files
+*.whl
+
+# Jupyter Notebook metadata
+*.nbmetadata
+
+# Python egg info
+*.egg-info/
+*.egg
+.eggs/
+
+# Other build files
+MANIFEST
