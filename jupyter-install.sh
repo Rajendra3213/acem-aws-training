@@ -13,6 +13,15 @@ source env/bin/activate
 pip install --upgrade pip
 # pip install -r requirements.txt
 pip install jupyter
+pip install numpy
+pip install pandas
+pip install matplotlib
+pip install seaborn
+pip install plotly-express
+pip install isodate
+pip install scikit-learn
+pip install pytest-warnings
+
 
 # to start jupyter notebook
 cp jupyter.service /etc/systemd/system/jupyter.service
