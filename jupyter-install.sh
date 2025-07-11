@@ -6,6 +6,8 @@ apt-get upgrade -y
 apt install -y python3-venv
 mkdir -p /home/ubuntu/jupyternotebook/
 cp jupyter.service /home/ubuntu/jupyternotebook/
+cp ml-backend-frontend.sh /home/ubuntu/jupyternotebook/
+cp front-backend.py /home/ubuntu/jupyternotebook/
 cd /home/ubuntu/jupyternotebook/
 
 python3 -m venv env
@@ -22,6 +24,8 @@ pip install isodate
 pip install scikit-learn
 pip install pytest-warnings
 pip install joblib
+pip install streamlit
+
 
 # to start jupyter notebook
 cp jupyter.service /etc/systemd/system/jupyter.service
