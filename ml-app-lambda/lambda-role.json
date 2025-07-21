@@ -1,0 +1,39 @@
+{
+    "Statement": [
+        {
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:s3:::my-people-counter-photos-2025/*",
+            "Sid": "AllowS3ReadAccess"
+        },
+        {
+            "Action": [
+                "rekognition:DetectLabels"
+            ],
+            "Effect": "Allow",
+            "Resource": "*",
+            "Sid": "AllowRekognitionDetect"
+        },
+        {
+            "Action": [
+                "sns:Publish"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:sns:us-east-1:488309743291:people-count-topic",
+            "Sid": "AllowSNSPublish"
+        },
+        {
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:logs:us-east-1:488309743291:*",
+            "Sid": "AllowBasicLambdaExecution"
+        }
+    ],
+    "Version": "2012-10-17"
+}

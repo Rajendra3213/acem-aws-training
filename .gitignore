@@ -103,3 +103,51 @@ env/*
 
 # Other build files
 MANIFEST
+
+
+# .gitignore - IMPORTANT: Protects sensitive files
+
+# Terraform files with sensitive data
+terraform.tfvars
+terraform.tfvars.json
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfplan.*
+
+# AWS credentials
+.aws/
+aws-credentials.txt
+credentials.txt
+
+# Lambda function packages
+*.zip
+lambda_function.zip
+
+# Terraform directories
+.terraform/
+.terraform.lock.hcl
+
+# Log files
+*.log
+terraform.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test images (optional)
+test-images/
+*.jpg
+*.png
+*.jpeg
+
+# Temporary files
+tmp/
+temp/
